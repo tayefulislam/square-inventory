@@ -8,12 +8,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAEZk135GBzayIC8YBbLZfRi1DQ0TB9g5Y",
-    authDomain: "square-inventory-26243.firebaseapp.com",
-    projectId: "square-inventory-26243",
-    storageBucket: "square-inventory-26243.appspot.com",
-    messagingSenderId: "600270856244",
-    appId: "1:600270856244:web:e7fa28a03b53739ab96a61"
+    apiKey: process.env.api_Key,
+    authDomain: process.env.auth_Domain,
+    projectId: process.env.project_Id,
+    storageBucket: process.env.storage_Bucket,
+    messagingSenderId: process.env.messaging_Sender_Id,
+    appId: process.env.app_Id
 };
 
 // Initialize Firebase
