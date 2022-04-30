@@ -15,7 +15,7 @@ const Inventory = () => {
     const [iQuantity, setIQuantity] = useState(0)
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -29,6 +29,61 @@ const Inventory = () => {
 
     const preQuantity = parseInt(item.quantity);
 
+
+    const handleQuantityUpdate = (event) => {
+
+        event.preventDefault()
+
+        const newQuantity = parseInt(event.target.newquantity.value);
+
+        if (!newQuantity) {
+            toast('Plase enter a  number')
+            return;
+        }
+
+        else if (newQuantity <= 0) {
+
+            toast('plase enter a valid number')
+
+        }
+
+        else {
+
+            const updateStock = parseInt(preQuantity + newQuantity)
+
+            console.log(updateStock)
+
+
+
+            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
+                newQuantity: updateStock
+            })
+                .then(function (response) {
+                    console.log(response)
+
+                    setIQuantity(updateStock)
+
+                    event.target.reset()
+
+                })
+
+
+            console.log(newQuantity)
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
     const handleUpdate = () => {
 
         if (preQuantity <= 0) {
@@ -36,18 +91,15 @@ const Inventory = () => {
             toast('queatity 0')
             return;
 
-
-
-
-
         }
 
 
         else {
+
             const newQuantity = preQuantity - 1;
 
 
-            axios.post(`http://localhost:5000/inventory/${id}`, {
+            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
                 newQuantity
             })
                 .then(function (response) {
@@ -93,7 +145,12 @@ const Inventory = () => {
                     </div>
 
 
+
+
+
                 </div>
+
+
 
 
             </div>
@@ -102,7 +159,10 @@ const Inventory = () => {
 
 
 
-
+            <form onSubmit={handleQuantityUpdate} class="input-group mb-3  w-50 mx-auto">
+                <input type="number" name='newquantity' class="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
+                <button class="btn  btn-outline-success" type="submit" id="button-addon2">Update Quantity</button>
+            </form>
 
 
 
