@@ -1,0 +1,15 @@
+.item img {
+
+    width: 300px;
+
+}
+
+@media only screen and (max-width:500px) {
+
+    .item img {
+
+        width: 100%;
+
+    }
+
+}
