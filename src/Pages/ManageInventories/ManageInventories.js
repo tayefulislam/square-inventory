@@ -26,7 +26,9 @@ const ManageInventories = () => {
 
 
             <table className="table">
-                <thead>
+
+                <tbody>
+
                     <tr>
 
                         <th scope="col">Name</th>
@@ -36,8 +38,6 @@ const ManageInventories = () => {
                         <th scope="col">Description</th>
                         <th scope="col">Action </th>
                     </tr>
-                </thead>
-                <tbody>
 
 
                     {
