@@ -25,7 +25,7 @@ const ManageInventories = () => {
         const procced = window.confirm('sure')
 
         if (procced) {
-            const url = `http://localhost:5000/detele/${id}`
+            const url = `https://glacial-scrubland-13579.herokuapp.com/detele/${id}`
 
             fetch(url, {
                 method: "DELETE"
@@ -108,9 +108,6 @@ const ManageInventories = () => {
 
             </table>
 
-            {
-                items.lenth < 1 || <h1 className='text-center text-danger'>any item not found</h1>
-            }
 
 
 

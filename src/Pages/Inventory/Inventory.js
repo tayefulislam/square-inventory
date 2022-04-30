@@ -127,7 +127,7 @@ const Inventory = () => {
 
             <div className='inventory-container mt-5'>
 
-                <img style={{ width: "300px" }} src={item?.image} alt="" />
+                <img src={item?.image} alt="" />
 
                 <div className='info-container'>
                     <p>
@@ -159,7 +159,7 @@ const Inventory = () => {
 
 
 
-            <form onSubmit={handleQuantityUpdate} class="input-group mb-3  w-50 mx-auto">
+            <form onSubmit={handleQuantityUpdate} class="input-group mb-3  mt-5 w-50 mx-auto">
                 <input type="number" name='newquantity' class="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
                 <button class="btn  btn-outline-success" type="submit" id="button-addon2">Update Quantity</button>
             </form>

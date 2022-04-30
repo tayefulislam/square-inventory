@@ -39,7 +39,7 @@ const Header = () => {
 
                             <Nav.Link as={Link} to="/manage-inventories"><span className='manu-style'>Manage Inventories</span></Nav.Link>
 
-                            <Nav.Link as={Link} to="/addservice"><span className='manu-style'>Services</span></Nav.Link>
+                            <Nav.Link as={Link} to="/addnewitem"><span className='manu-style'>Add Item</span></Nav.Link>
 
                             <Nav.Link as={Link} to="/manage"><span className='manu-style'>Services</span></Nav.Link>
 

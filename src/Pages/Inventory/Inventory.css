@@ -1,18 +1,25 @@
 .inventory-container {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
 }
 
-.info-container {
-
-    margin: 50px;
-    font-size: 30px;
+.inventory-container img {
+    width: 70%;
 }
+
+
 
 @media only screen and (max-width:500px) {
     .inventory-container {
 
         grid-template-columns: 1fr;
     }
+
+    .inventory-container img {
+        width: 100%;
+    }
+
+
 }
