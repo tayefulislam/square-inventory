@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Item.css'
 
 const Item = ({ item }) => {
+
+    const navigate = useNavigate()
 
     console.log('imte')
 
@@ -21,7 +24,7 @@ const Item = ({ item }) => {
             </p>
 
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-primary" type="button">Manage</button>
+                <button onClick={() => navigate(`/inventory/${item._id}`)} class="btn btn-primary" type="button">Manage</button>
 
             </div>
 
