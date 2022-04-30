@@ -1,9 +1,18 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
+    console.log(user)
+
+    const navigate = useNavigate()
     return (
         <div>
 
@@ -36,7 +45,9 @@ const Header = () => {
 
 
 
-                            <button type="button" className="btn btn-outline-success">Success</button>
+                            {
+                                user ? <button onClick={() => signOut(auth)} type="button" className="btn btn-outline-success">LogOut</button> : <button onClick={() => navigate('/login')} type="button" className="btn btn-outline-success">Login</button>
+                            }
 
 
 

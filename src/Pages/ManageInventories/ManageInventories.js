@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 const ManageInventories = () => {
@@ -18,6 +19,42 @@ const ManageInventories = () => {
     }, [])
 
 
+    const handleDelete = (id) => {
+
+
+        const procced = window.confirm('sure')
+
+        if (procced) {
+            const url = `http://localhost:5000/detele/${id}`
+
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+
+                    if (data.deletedCount > 0) {
+
+
+                        const remaning = items.filter(item => item._id !== id)
+
+                        setItems(remaning)
+
+
+
+
+                    }
+                })
+        }
+
+
+
+
+
+    }
+
+
 
     return (
         <div className='container'>
@@ -26,6 +63,9 @@ const ManageInventories = () => {
 
 
             <table className="table">
+
+
+
 
                 <tbody>
 
@@ -40,6 +80,10 @@ const ManageInventories = () => {
                     </tr>
 
 
+
+
+
+
                     {
                         items.map(item => <tr>
 
@@ -50,7 +94,7 @@ const ManageInventories = () => {
                             <td>{item?.description}</td>
 
 
-                            <td><button className='btn btn-danger g-3'>Delete</button>
+                            <td><button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
                                 <button className='btn btn-success'>update</button></td>
 
 
@@ -61,7 +105,12 @@ const ManageInventories = () => {
 
 
                 </tbody>
+
             </table>
+
+            {
+                items.lenth < 1 || <h1 className='text-center text-danger'>any item not found</h1>
+            }
 
 
 
