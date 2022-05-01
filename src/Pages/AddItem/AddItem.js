@@ -4,6 +4,7 @@ import './AddItem.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const AddItem = () => {
 
     const [user, loading, error] = useAuthState(auth);
@@ -32,6 +33,13 @@ const AddItem = () => {
         axios.post('https://glacial-scrubland-13579.herokuapp.com/addnewitem', newItem)
             .then(function (response) {
                 console.log(response)
+
+                if (response.data.insertedId) {
+
+                    toast('New Item Added in Inventory')
+                    event.target.reset()
+
+                }
             })
 
     }

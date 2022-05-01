@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const ManageInventories = () => {
 
 
 
     const [items, setItems] = useState([])
+    const navigate = useNavigate()
 
     const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
 
@@ -57,9 +59,15 @@ const ManageInventories = () => {
 
 
     return (
+
         <div className='container'>
 
             <h1 className='text-center mt-5 mb-4'>Manage Inventories</h1>
+
+            <div class="d-grid gap-2">
+                <button onClick={() => navigate('/addnewitem')} class="btn btn-outline-primary w-20 mx-auto" type="button">Add New Item</button>
+
+            </div>
 
 
             <table className="table">
