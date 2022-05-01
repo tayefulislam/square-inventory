@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login';
 import AddItem from './Pages/AddItem/AddItem';
 import Register from './Pages/Register/Register';
 import MyItems from './Pages/MyItems/MyItems';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 
 
 function App() {
@@ -21,15 +22,30 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/inventory/:id' element={<Inventory></Inventory>}></Route>
 
-        <Route path='/manage-inventories' element={<ManageInventories></ManageInventories>}></Route>
-        <Route path='/myitems' element={<MyItems></MyItems>}></Route>
+
+
+        <Route path='/inventory/:id' element={<RequireAuth>
+          <Inventory></Inventory>
+        </RequireAuth>}></Route>
+
+        <Route path='/manage-inventories' element={<RequireAuth><ManageInventories></ManageInventories></RequireAuth>}></Route>
+
+        <Route path='/myitems' element={<RequireAuth>
+          <MyItems></MyItems>
+        </RequireAuth>}></Route>
+
+
+        <Route path='/addnewitem' element={<RequireAuth>
+          <AddItem></AddItem>
+        </RequireAuth>}></Route>
+
+
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
 
-        <Route path='/addnewitem' element={<AddItem></AddItem>}></Route>
+
       </Routes>
 
       <ToastContainer></ToastContainer>
