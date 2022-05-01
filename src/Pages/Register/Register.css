@@ -1,10 +1,51 @@
 .form {
     background-color: #1DC68C;
     padding: 30px;
+    border-radius: 20px;
 }
 
 
-.register-btn {
+.form-floating {
+
+    width: 50%;
+    padding: 0 10px;
+}
+
+
+
+
+
+
+.click-btn {
     font-size: 20px;
     font-weight: 600;
+}
+
+
+@media only screen and (max-width:500px) {
+
+    .form {
+
+        padding: 0;
+
+    }
+
+    .form-floating {
+
+        width: 80%;
+        padding: 0 10px;
+    }
+
+}
+
+@media only screen and (max-width:699px) {
+
+
+
+    .form-floating {
+
+        width: 100%;
+        padding: 0 10px;
+    }
+
 }
