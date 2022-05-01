@@ -1,12 +1,21 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
 
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const naviagte = useNavigate()
+    // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate()
 
 
 
@@ -14,11 +23,31 @@ const Login = () => {
     const handeLogin = (event) => {
         event.preventDefault()
 
-        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(name)
+
+
+        signInWithEmailAndPassword(email, password)
+
+
+
+        if (error) {
+
+            console.log(error.message)
+
+
+        }
+
+        if (loading) {
+
+            <Loading></Loading>
+        }
+
+        if (user) {
+
+            navigate('/home')
+        }
 
 
     }
@@ -61,8 +90,8 @@ const Login = () => {
 
 
 
-            <button onClick={() => signInWithGoogle()} >Google</button>
-            <button onClick={() => naviagte('/signup')} >Signup</button>
+            {/* <button onClick={() => signInWithGoogle()} >Google</button> */}
+            <button onClick={() => navigate('/signup')} >Signup</button>
 
 
         </div>

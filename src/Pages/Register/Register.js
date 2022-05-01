@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import './Register.css'
@@ -18,6 +19,9 @@ const Register = () => {
 
 
     const [updateProfile, updating, errorProfile] = useUpdateProfile(auth);
+
+
+    const navigate = useNavigate()
 
 
 
@@ -45,7 +49,7 @@ const Register = () => {
 
         if (user) {
             toast('Sign Up complete')
-            event.target.reset()
+            navigate('/home')
         }
 
 
