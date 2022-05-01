@@ -1,15 +1,18 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
-const ManageInventories = () => {
 
-
+const MyItems = () => {
 
     const [items, setItems] = useState([])
     const navigate = useNavigate()
 
-    const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
+    const [user, loading, error] = useAuthState(auth);
+
+
+    const url = `https://glacial-scrubland-13579.herokuapp.com/items?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -18,7 +21,7 @@ const ManageInventories = () => {
                 setItems(data)
                 console.log(data)
             })
-    }, [])
+    }, [user])
 
 
     const handleDelete = (id) => {
@@ -57,12 +60,10 @@ const ManageInventories = () => {
     }
 
 
-
     return (
-
         <div className='container'>
 
-            <h1 className='text-center mt-5 mb-4'>Manage Inventories</h1>
+            <h1 className='text-center mt-5 mb-4'>My Items</h1>
 
             <div className="d-grid gap-2">
                 <button onClick={() => navigate('/addnewitem')} className="btn btn-outline-primary w-20 mx-auto" type="button">Add New Item</button>
@@ -123,4 +124,4 @@ const ManageInventories = () => {
     );
 };
 
-export default ManageInventories;
+export default MyItems;
