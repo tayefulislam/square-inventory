@@ -18,6 +18,8 @@ const Items = () => {
     const navigate = useNavigate()
     const [user, loading, error] = useAuthState(auth);
 
+
+    // loading : set true of false
     const [isLaoding, setIsLoading] = useState()
 
 

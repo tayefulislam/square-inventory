@@ -14,6 +14,8 @@ import MyItems from './Pages/MyItems/MyItems';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Loading from './Pages/Shared/Loading/Loading'
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import ResetPassword from './Pages/ResetPassword/ResetPassword';
+import PasswordSent from './Pages/ResetPassword/PasswordSent';
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
+        <Route path='/reset-password' element={<ResetPassword></ResetPassword>}></Route>
+        <Route path='/passwordsent' element={<PasswordSent></PasswordSent>}></Route>
 
         <Route path='*' element={<NotFound></NotFound>}> </Route>
 
