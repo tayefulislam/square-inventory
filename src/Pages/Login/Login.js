@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Toast } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -27,6 +28,7 @@ const Login = () => {
 
 
 
+
     const handeLogin = (event) => {
         event.preventDefault()
 
@@ -40,6 +42,31 @@ const Login = () => {
 
     }
 
+    console.log(error?.message)
+
+
+    useEffect(() => {
+
+        // if (error?.message === 'Firebase: Error (auth/wrong-password).') {
+        //     return toast('Wrong Password')
+
+
+        // }
+
+        // if (error?.message === 'Firebase: Error (auth/user-not-found).') {
+        //     return toast('User Not Found')
+
+
+        // }
+
+
+        if (error?.message) {
+            toast(`${error?.message}`)
+        }
+
+
+    }, [error])
+
 
 
 
@@ -48,6 +75,7 @@ const Login = () => {
     if (user) {
         navigate(from, { replace: true })
     }
+
 
 
 

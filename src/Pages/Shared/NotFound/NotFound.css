@@ -1,0 +1,15 @@
+.notfound {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+
+}
+
+
+
+@media screen and (max-width:620px) {
+    .notfound img {
+        width: 100%;
+    }
+
+}

@@ -12,6 +12,8 @@ import AddItem from './Pages/AddItem/AddItem';
 import Register from './Pages/Register/Register';
 import MyItems from './Pages/MyItems/MyItems';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import Loading from './Pages/Shared/Loading/Loading'
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 
 function App() {
@@ -40,10 +42,14 @@ function App() {
           <AddItem></AddItem>
         </RequireAuth>}></Route>
 
+        <Route path='/loading' element={<Loading></Loading>}></Route>
+
 
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
+
+        <Route path='*' element={<NotFound></NotFound>}> </Route>
 
 
       </Routes>
