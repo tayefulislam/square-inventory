@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Item from '../Item/Item';
+import { Spinner } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading'
 import './Items.css'
+import { async } from '@firebase/util';
+
 
 const Items = () => {
 
 
+
+
     const [items, setItems] = useState([])
     const navigate = useNavigate()
+    const [user, loading, error] = useAuthState(auth);
+
+    const [isLaoding, setIsLoading] = useState()
 
 
 
@@ -19,10 +30,17 @@ const Items = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
+
                 setItems(data)
+                setIsLoading(true)
+
                 console.log(data)
+
             })
     }, [])
+
+
+    console.log(isLaoding)
 
 
 
@@ -30,27 +48,47 @@ const Items = () => {
 
 
     return (
-        <div className='container mb-5'>
+        <>
 
-            <h1 className='text-center mt-4 mb-4'>Items List</h1>
+            <div className='container mb-5'>
 
-            <div className='item-container'>
-                {
+                <h1 className='text-center mt-4 mb-4'>Items List</h1>
 
-                    items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
 
-                }
+
+
+
+                <div className='item-container'>
+
+                    {
+
+                        items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
+
+                    }
+
+
+
+                </div>
+
+
+
+
+                <div className="d-grid gap-2 mt-5">
+
+                    {
+                        !isLaoding ? <Loading></Loading> : ''
+                    }
+
+
+                    <button onClick={() => navigate('/manage-inventories')} className="btn btn-outline-primary w-20 mx-auto" type="button">Manage Inventories</button>
+
+                </div>
+
+
+
             </div>
 
-
-            <div className="d-grid gap-2 mt-5">
-                <button onClick={() => navigate('/manage-inventories')} className="btn btn-outline-primary w-20 mx-auto" type="button">Manage Inventories</button>
-
-            </div>
-
-
-
-        </div>
+        </>
     );
 };
 

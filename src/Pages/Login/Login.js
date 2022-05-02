@@ -1,6 +1,7 @@
+import { async } from '@firebase/util';
 import React, { useEffect } from 'react';
 import { Toast } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendEmailVerification, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -21,6 +22,9 @@ const Login = () => {
 
 
 
+
+
+
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
@@ -29,13 +33,15 @@ const Login = () => {
 
 
 
-    const handeLogin = (event) => {
+    const handeLogin = async (event) => {
         event.preventDefault()
 
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password);
+
+
 
 
 
@@ -66,6 +72,9 @@ const Login = () => {
 
 
     }, [error])
+
+
+
 
 
 
@@ -105,7 +114,13 @@ const Login = () => {
 
 
 
+
+
+
                     <div className="d-grid gap-2 mt-3">
+                        {
+                            loading ? <Loading></Loading> : ''
+                        }
                         <button className="btn btn-outline-dark w-20 mx-auto" type="submit"><span className='text-light click-btn'>Login</span></button>
 
 

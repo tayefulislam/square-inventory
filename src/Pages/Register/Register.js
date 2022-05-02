@@ -1,11 +1,14 @@
-import React from 'react';
+import { sendEmailVerification } from 'firebase/auth';
+import React, { useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 
-import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-import './Register.css'
+import Loading from '../Shared/Loading/Loading'
+import './Register.css';
 
 const Register = () => {
 
@@ -15,6 +18,8 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [sendEmailVerification, sending, errorEmailVerify] = useSendEmailVerification(auth);
 
 
 
@@ -41,6 +46,8 @@ const Register = () => {
         await createUserWithEmailAndPassword(email, password)
 
         await updateProfile({ displayName: name });
+        // send email varification
+        await sendEmailVerification()
 
 
 
@@ -52,15 +59,26 @@ const Register = () => {
 
         }
 
+
+        console.log(name)
+    }
+
+
+
+
+    useEffect(() => {
+
         if (user) {
             toast('Sign Up complete')
 
             navigate('/home')
         }
 
+    }, [user])
 
-        console.log(name)
-    }
+
+
+
 
     return (
         <>
@@ -86,7 +104,13 @@ const Register = () => {
                         <label for="floatingPassword">Password</label>
                     </div>
 
+
+
                     <div className="d-grid gap-2 mt-3">
+                        {
+                            loading ? <Loading></Loading> : ''
+                        }
+
                         <button className="btn btn-outline-dark w-20 mx-auto" type="submit"><span className='text-light click-btn'>SignUp</span></button>
 
 
