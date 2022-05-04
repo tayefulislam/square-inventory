@@ -29,6 +29,10 @@ const Inventory = () => {
 
     const preQuantity = parseInt(item.quantity);
 
+    // presold
+    const preSold = parseInt(item.sold);
+    console.log(preSold)
+
 
     const handleQuantityUpdate = (event) => {
 
@@ -97,10 +101,11 @@ const Inventory = () => {
         else {
 
             const newQuantity = preQuantity - 1;
+            const newSold = preSold + 1
 
 
             axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
-                newQuantity
+                newQuantity, newSold
             })
                 .then(function (response) {
                     console.log(response)

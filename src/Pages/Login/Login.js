@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import './Login.css'
 
 const Login = () => {
 
@@ -76,11 +77,6 @@ const Login = () => {
 
 
 
-
-
-
-
-
     if (user) {
         navigate(from, { replace: true })
     }
@@ -124,12 +120,14 @@ const Login = () => {
                         <button className="btn btn-outline-dark w-20 mx-auto" type="submit"><span className='text-light click-btn'>Login</span></button>
 
 
+                        <p className='text-center text-light fw-bold '>Forget Password ? <span onClick={() => navigate('/reset-password')} type="button" className='reset-title'>Reset Now</span></p>
+
+                        <p className='text-center text-light fw-bold '>Don't Have Account ?<span onClick={() => navigate('/signup')} type="button" className='reset-title'>Register</span></p>
+
+
 
                     </div>
                 </form>
-
-
-                <button onClick={() => navigate('/signup')} >Signup</button>
 
 
 

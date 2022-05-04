@@ -25,6 +25,7 @@ const AddItem = () => {
 
             supplier: event.target.supplier.value,
             description: event.target.description.value,
+            sold: 0,
 
         }
 

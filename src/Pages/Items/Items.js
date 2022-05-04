@@ -64,7 +64,7 @@ const Items = () => {
 
                     {
 
-                        items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
+                        items.map(item => <Item key={item._id} item={item}></Item>)
 
                     }
 
