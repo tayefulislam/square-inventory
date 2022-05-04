@@ -7,7 +7,10 @@ const TrackItem = () => {
     const [trackIdMain, setTrackIdMain] = useState('')
 
 
+
     const handelTrack = (event) => {
+
+
 
         event.preventDefault()
 
@@ -17,12 +20,15 @@ const TrackItem = () => {
 
     }
 
-    console.log(trackIdMain)
+    console.log(trackItem)
 
 
     useEffect(() => {
 
+        // fetch(`https://glacial-scrubland-13579.herokuapp.com/item/${trackIdMain}`)
+
         fetch(`http://localhost:5000/item/${trackIdMain}`)
+
             .then(res => res.json())
             .then(data => {
                 setTrackItem(data)
@@ -30,7 +36,7 @@ const TrackItem = () => {
             })
     }, [trackIdMain])
 
-
+    console.log(trackItem.length === 0)
 
 
 
@@ -44,7 +50,13 @@ const TrackItem = () => {
 
 
             <div>
-                <h1>{trackItem.name}</h1>
+
+                {
+                    trackItem.length === 0 ? <h1>imtem not found</h1> : <> <h1>{trackItem.name}</h1> </>
+                }
+
+
+
             </div>
 
 

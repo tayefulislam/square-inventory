@@ -14,6 +14,8 @@ const AddItem = () => {
     const handleAddItem = (event) => {
         event.preventDefault()
 
+        const trackId = Math.floor(100000 * Math.random())
+
         const newItem = {
             name: event.target.name.value,
             email: user.email,
@@ -24,7 +26,8 @@ const AddItem = () => {
             image: event.target.image.value,
 
             supplier: event.target.supplier.value,
-            trackId: event.target.trackid.value,
+            // trackId: event.target.trackid.value,
+            trackId: trackId + '',
             shelf: event.target.shelf.value,
 
             description: event.target.description.value,
@@ -53,43 +56,6 @@ const AddItem = () => {
 
     return (
         <>
-            {/* <div className='w-50 mx-auto text-center'>
-
-                <h1>Add New Item</h1>
-
-                <form className='form-container' onSubmit={handleAddItem}>
-
-                    <div>
-                        <label>Name</label> <br />
-                        <input type="text" name='name' required />
-                    </div>
-                    <div>
-                        <label>Price</label> <br />
-                        <input type="number" name='price' required />
-                    </div>
-                    <div>
-                        <label>Quantity</label> <br />
-                        <input type="number" name='quantity' required />
-                    </div>
-                    <div>
-                        <label>Image Link</label> <br />
-                        <input type="text" name='image' />
-                    </div>
-                    <div>
-                        <label>Supplier</label> <br />
-                        <input type="text" name='supplier' />
-                    </div>
-                    <div>
-                        <label>Description</label> <br />
-                        <input type="text" name='description' />
-                    </div>
-
-                    <button>Add New Item</button>
-                </form>
-
-
-
-            </div> */}
 
             <div className='container mt-4  form-add'>
 
@@ -139,10 +105,10 @@ const AddItem = () => {
                     </div>
 
 
-                    <div className="form-floating mb-3 mx-auto">
+                    {/* <div className="form-floating mb-3 mx-auto">
                         <input type="number" className="form-control" name='trackid' id="floatingInputName" placeholder="Your Name" />
                         <label for="floatingInputName">Track ID</label>
-                    </div>
+                    </div> */}
 
 
 

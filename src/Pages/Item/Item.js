@@ -21,6 +21,7 @@ const Item = ({ item }) => {
                 <span>Price : {item?.price}</span>  <br />
                 <span>Quantity : {item?.quantity}</span>  <br />
                 <span>Supplier : {item?.supplier}</span>  <br />
+                <span>Track ID : {item?.trackId}</span>  <br />
             </p>
 
             <div class="d-grid gap-2 col-6 mx-auto">
