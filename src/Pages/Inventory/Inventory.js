@@ -31,6 +31,7 @@ const Inventory = () => {
 
     // presold
     const preSold = parseInt(item.sold);
+    let newSold;
     console.log(preSold)
 
 
@@ -59,8 +60,10 @@ const Inventory = () => {
 
 
 
-            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
-                newQuantity: updateStock
+            axios.post(`http://localhost:5000/inventory/${id}`, {
+                newQuantity: updateStock,
+
+                newSold: preSold
             })
                 .then(function (response) {
                     console.log(response)
@@ -101,10 +104,12 @@ const Inventory = () => {
         else {
 
             const newQuantity = preQuantity - 1;
-            const newSold = preSold + 1
+            newSold = preSold + 1
 
 
-            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
+
+
+            axios.post(`http://localhost:5000/inventory/${id}`, {
                 newQuantity, newSold
             })
                 .then(function (response) {
@@ -168,8 +173,6 @@ const Inventory = () => {
                 <input type="number" name='newquantity' class="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
                 <button class="btn  btn-outline-success" type="submit" id="button-addon2">Re Stock</button>
             </form>
-
-
 
 
 
