@@ -60,7 +60,7 @@ const Inventory = () => {
 
 
 
-            axios.post(`http://localhost:5000/inventory/${id}`, {
+            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
                 newQuantity: updateStock,
 
                 newSold: preSold
@@ -109,7 +109,7 @@ const Inventory = () => {
 
 
 
-            axios.post(`http://localhost:5000/inventory/${id}`, {
+            axios.post(`https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`, {
                 newQuantity, newSold
             })
                 .then(function (response) {
@@ -146,6 +146,8 @@ const Inventory = () => {
                         <span>Description : {item?.description}</span> <br />
                         <span>Price : {item?.price}</span>  <br />
                         <span>Quantity : {item?.quantity ? item?.quantity : iQuantity}</span>  <br />
+                        <span>Sold : {item?.sold}</span>  <br />
+
                         <span>Supplier : {item?.supplier}</span>  <br />
                     </p>
 
