@@ -9,8 +9,6 @@ const ResetPassword = () => {
 
 
 
-
-
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
 
@@ -24,24 +22,11 @@ const ResetPassword = () => {
         if (email) {
             await sendPasswordResetEmail(email)
 
-            if (!error?.message) {
-                toast(`email sent`)
 
-            }
+            toast(`Reset Email set`)
 
 
-
-            else if (error?.message) {
-                toast(`${error?.message}`)
-
-            }
         }
-
-
-
-
-
-
 
 
     }
@@ -69,11 +54,6 @@ const ResetPassword = () => {
     // }, [error])
 
 
-
-
-
-
-
     return (
         <div className='container mt-4 form'>
 
@@ -91,6 +71,7 @@ const ResetPassword = () => {
 
 
                 <div className="d-grid gap-2 mt-3">
+
                     {
                         sending ? <Loading></Loading> : ''
                     }
