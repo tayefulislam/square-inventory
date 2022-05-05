@@ -29,6 +29,15 @@ const Blogs = () => {
 
             </div>
 
+            <div>
+                <h2 className='text-center'>Differences between sql and nosql databases ?</h2>
+
+                <p className='fs-5'>SQL is Relational Database Management system type. noSQl is Non-relational or distributed database system.SQl data save in table structure on the hand NoSQL databases are either key-value pairs, document-based, graph databases or wide-column stores. SQL have fixed schema noSQL have dynamic schema.
+                    SQL databases are not suited for pecking-order data storage. NoSQL databases are best suited for pecking-order data storage.
+                    SQL is Vertically Scalable noSQL is Horizontally scalable.
+                </p>
+            </div>
+
 
 
 
