@@ -44,7 +44,7 @@ const Count = () => {
 
 
     return (
-        <div className='container count'>
+        <div className='container count mt-5'>
 
             <div>
                 <h2>Total Item</h2>

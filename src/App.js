@@ -65,7 +65,7 @@ function App() {
 
 
       <ToastContainer></ToastContainer>
-      <Count></Count>
+
 
       <Footer></Footer>
 

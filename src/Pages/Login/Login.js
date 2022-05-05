@@ -1,4 +1,5 @@
 import { async } from '@firebase/util';
+import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Toast } from 'react-bootstrap';
 import { useSendEmailVerification, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -42,6 +43,10 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, password);
 
+        const { data } = await axios.post('http://localhost:5000/login', { email })
+        console.log(data)
+        localStorage.setItem('accessToken', data.acceseToken)
+        navigate(from, { replace: true })
 
 
 
@@ -78,7 +83,7 @@ const Login = () => {
 
 
     if (user) {
-        navigate(from, { replace: true })
+        // navigate(from, { replace: true })
     }
 
 
