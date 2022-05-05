@@ -1,0 +1,33 @@
+.footer {
+    font-weight: 600;
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 100px;
+}
+
+.icon {
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width:500px) {
+
+    .footer {
+
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .address {
+        text-align: center;
+    }
+
+}

@@ -17,6 +17,8 @@ import NotFound from './Pages/Shared/NotFound/NotFound';
 import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import PasswordSent from './Pages/ResetPassword/PasswordSent';
 import Blogs from './Pages/Blogs/Blogs';
+import Footer from './Pages/Shared/Footer/Footer';
+import Count from './Pages/Count/Count';
 
 
 function App() {
@@ -61,7 +63,11 @@ function App() {
 
       </Routes>
 
+
       <ToastContainer></ToastContainer>
+      <Count></Count>
+
+      <Footer></Footer>
 
     </div>
   );

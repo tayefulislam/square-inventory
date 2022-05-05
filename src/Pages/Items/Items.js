@@ -14,7 +14,9 @@ const Items = () => {
 
 
 
+
     const [items, setItems] = useState([])
+
     const navigate = useNavigate()
     const [user, loading, error] = useAuthState(auth);
 
@@ -39,7 +41,7 @@ const Items = () => {
                 console.log(data)
 
             })
-    }, [])
+    }, [user])
 
 
     console.log(isLaoding)
