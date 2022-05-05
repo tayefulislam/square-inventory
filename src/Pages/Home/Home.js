@@ -12,8 +12,9 @@ const Home = () => {
         <div>
 
             <Banner></Banner>
-            <Items></Items>
             <TrackItem></TrackItem>
+            <Items></Items>
+
 
 
 

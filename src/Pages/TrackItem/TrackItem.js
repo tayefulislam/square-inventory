@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import './TrackItem.css'
 
 const TrackItem = () => {
 
     const [trackItem, setTrackItem] = useState([])
 
-    const [trackIdMain, setTrackIdMain] = useState('')
+    const [trackIdMain, setTrackIdMain] = useState('0000')
 
 
 
@@ -25,9 +26,9 @@ const TrackItem = () => {
 
     useEffect(() => {
 
-        // fetch(`https://glacial-scrubland-13579.herokuapp.com/item/${trackIdMain}`)
+        fetch(`https://glacial-scrubland-13579.herokuapp.com/item/${trackIdMain}`)
 
-        fetch(`http://localhost:5000/item/${trackIdMain}`)
+            // fetch(`http://localhost:5000/item/${trackIdMain}`)
 
             .then(res => res.json())
             .then(data => {
@@ -41,19 +42,22 @@ const TrackItem = () => {
 
 
     return (
-        <>
-            <form onSubmit={handelTrack} class="input-group mb-5  mt-5 w-50 mx-auto">
-                <input type="number" name='trackid' class="form-control" placeholder="Tack Item by Track Id" aria-describedby="button-addon2" />
-                <button class="btn  btn-outline-success" type="submit" id="button-addon2">Track ID</button>
+        < div className='container track-item'>
+            <h1 className='text-center text-light'>Track Item</h1>
+
+            <form onSubmit={handelTrack} class="input-group mb-5 w-50 sm:w-100 mt-5 mx-auto">
+                <input type="text" name='trackid' class="form-control" placeholder="Tack Item by Track Id" aria-describedby="button-addon2" />
+                <button class="btn track-btn" type="submit" id="button-addon2">Track ID</button>
             </form>
 
 
 
             <div>
 
-                {
-                    trackItem.length === 0 ? <h1>imtem not found</h1> : <> <h1>{trackItem.name}</h1> </>
-                }
+                <h1 className='text-center text-light'>{trackItem?.name}</h1>
+                <h2 className='text-center text-light'>{trackItem?.shelf}</h2>
+
+
 
 
 
@@ -71,7 +75,7 @@ const TrackItem = () => {
 
 
 
-        </>
+        </div>
 
 
     );
