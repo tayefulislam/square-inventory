@@ -48,6 +48,8 @@ const Header = () => {
                                     <Nav.Link as={Link} to="/myitems"><span className='manu-style'>My Items</span></Nav.Link></> : ''
                             }
 
+                            <Nav.Link as={Link} to="/blogs"><span className='manu-style'>Blogs</span></Nav.Link>
+
 
 
                             {

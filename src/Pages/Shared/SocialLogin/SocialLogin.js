@@ -9,9 +9,10 @@ const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
 
-    const navigate = useNavigate()
 
     const location = useLocation();
+    const navigate = useNavigate()
+
 
     const from = location.state?.from?.pathname || "/";
 

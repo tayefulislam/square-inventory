@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Inventory.css'
 
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 const Inventory = () => {
@@ -11,8 +11,9 @@ const Inventory = () => {
 
     console.log(id)
 
-    const [item, setItem] = useState([])
-    const [iQuantity, setIQuantity] = useState(0)
+    const [item, setItem] = useState([]);
+    const [iQuantity, setIQuantity] = useState(0);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const url = `https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`;
@@ -174,12 +175,26 @@ const Inventory = () => {
             <form onSubmit={handleQuantityUpdate} class="input-group mb-3  mt-5 w-50 mx-auto">
                 <input type="number" name='newquantity' class="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
                 <button class="btn  btn-outline-success" type="submit" id="button-addon2">Re Stock</button>
+
+
+
+
+
+
             </form>
 
 
 
 
-        </div>
+
+            <div className="d-grid gap-2 mt-5 mb-5">
+
+
+                <button onClick={() => navigate('/manage-inventories')} className="btn btn-outline-primary w-20 mx-auto" type="button">Manage Inventories</button>
+
+            </div>
+
+        </div >
     );
 };
 

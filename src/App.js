@@ -16,6 +16,7 @@ import Loading from './Pages/Shared/Loading/Loading'
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import PasswordSent from './Pages/ResetPassword/PasswordSent';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path='/addnewitem' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>}></Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
 
         <Route path='/loading' element={<Loading></Loading>}></Route>
 
