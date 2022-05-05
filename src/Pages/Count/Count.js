@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
+import './Count.css'
 const Count = () => {
 
 
@@ -20,23 +21,55 @@ const Count = () => {
             })
     }, [])
 
+    let quantity = 0;
+    let sold = 0;
+
+
+
+    for (const item of items) {
+
+        sold = sold + item.sold
+        quantity = quantity + item.quantity;
+
+
+
+
+    }
+
+    console.log(sold)
+
 
 
 
 
 
     return (
-        <div>
+        <div className='container count'>
 
-            <CountUp
-                start={0}
-                end={items?.length}
-                duration={4}
+            <div>
+                <h2>Total Item</h2>
+                <CountUp className='text-dark fs-1'
+                    start={0}
+                    end={items.length}
+                    duration={3}> </CountUp>
+            </div>
+            <div>
+                <h2>In Stock</h2>
+                <CountUp className='text-dark fs-1'
+                    start={0}
+                    end={quantity}
+                    duration={3}> </CountUp>
+            </div>
+
+            <div>
+                <h2>Total Delivered</h2>
+                <CountUp className='text-dark fs-1'
+                    start={0}
+                    end={sold}
+                    duration={3}> </CountUp>
+            </div>
 
 
-            >
-
-            </CountUp>
 
         </div>
     );
