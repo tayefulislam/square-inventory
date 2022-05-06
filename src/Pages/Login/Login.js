@@ -43,7 +43,11 @@ const Login = () => {
 
         await signInWithEmailAndPassword(email, password);
 
-        const { data } = await axios.post('http://localhost:5000/login', { email })
+        const url = `https://glacial-scrubland-13579.herokuapp.com/login`;
+
+        // const url = `http://localhost:5000/login`
+
+        const { data } = await axios.post(url, { email })
         // console.log(data)
         localStorage.setItem('accessToken', data.acceseToken)
         navigate(from, { replace: true })

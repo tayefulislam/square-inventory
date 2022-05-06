@@ -36,7 +36,7 @@ const Footer = () => {
 
                 <i className="fa-brands fa-facebook p-3"></i>
                 <i className="fa-brands fa-instagram-square p-3"></i>
-                <i class="fa-brands fa-twitter p-3"></i>
+                <i className="fa-brands fa-twitter p-3"></i>
 
             </div>
 

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 
 const MyItems = () => {
@@ -14,9 +16,9 @@ const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
 
 
-    // const url = `https://glacial-scrubland-13579.herokuapp.com/itemlist?email=${user?.email}`;
+    const url = `https://glacial-scrubland-13579.herokuapp.com/itemlist?email=${user?.email}`;
 
-    const url = `http://localhost:5000/itemlist?email=${user?.email}`;
+    // const url = `http://localhost:5000/itemlist?email=${user?.email}`;
 
     useEffect(() => {
 
@@ -24,14 +26,29 @@ const MyItems = () => {
         const getItems = async () => {
 
 
-            const { data } = await axios.get(url, {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            try {
+
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+
+                });
+
+                setItems(data)
+
+            }
+            catch (error) {
+
+                if (error.response.status === 401 || error.response.status === 403) {
+
+                    signOut(auth)
+
+                    navigate('/login')
+
                 }
 
-            });
-
-            setItems(data)
+            }
         }
 
         getItems();

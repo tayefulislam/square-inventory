@@ -96,7 +96,7 @@ const Inventory = () => {
 
         if (preQuantity <= 0) {
 
-            toast('queatity 0')
+            toast('Stock Out')
             return;
 
         }
@@ -146,14 +146,18 @@ const Inventory = () => {
                         <span className=''><i>Id : {item?._id}</i></span><br />
                         <span>Description : {item?.description}</span> <br />
                         <span>Price : {item?.price}</span>  <br />
-                        <span>Quantity : {item?.quantity ? item?.quantity : iQuantity}</span>  <br />
+
+                        <span>Quantity : {item?.quantity ?
+
+                            item?.quantity : item?.quantity === 0 && 'Stock Out'}</span>  <br />
+
                         <span>Sold : {item?.sold}</span>  <br />
 
                         <span>Supplier : {item?.supplier}</span>  <br />
                     </p>
 
-                    <div class="d-grid gap-2">
-                        <button onClick={handleUpdate} class="btn btn-primary w-50 mx-auto" type="button">Delivered</button>
+                    <div className="d-grid gap-2">
+                        <button onClick={handleUpdate} className="btn btn-primary w-50 mx-auto" type="button">Delivered</button>
 
                     </div>
 
@@ -172,9 +176,9 @@ const Inventory = () => {
 
 
 
-            <form onSubmit={handleQuantityUpdate} class="input-group mb-3  mt-5 w-50 mx-auto">
-                <input type="number" name='newquantity' class="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
-                <button class="btn  btn-outline-success" type="submit" id="button-addon2">Re Stock</button>
+            <form onSubmit={handleQuantityUpdate} className="input-group mb-3  mt-5 w-50 mx-auto">
+                <input type="number" name='newquantity' className="form-control" placeholder="Add Quantity" aria-describedby="button-addon2" />
+                <button className="btn  btn-outline-success" type="submit" id="button-addon2">Re Stock</button>
 
 
 

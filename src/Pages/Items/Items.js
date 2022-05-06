@@ -28,9 +28,9 @@ const Items = () => {
 
 
 
-    // const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
+    const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
 
-    const url = `http://localhost:5000/items`;
+    // const url = `http://localhost:5000/items`;
 
     useEffect(() => {
         fetch(url)
