@@ -2,25 +2,42 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import axios from 'axios';
 
 
 const MyItems = () => {
 
     const [items, setItems] = useState([])
+    console.log(items)
     const navigate = useNavigate()
 
     const [user, loading, error] = useAuthState(auth);
 
 
-    const url = `https://glacial-scrubland-13579.herokuapp.com/items?email=${user?.email}`;
+    // const url = `https://glacial-scrubland-13579.herokuapp.com/itemlist?email=${user?.email}`;
+
+    const url = `http://localhost:5000/itemlist?email=${user?.email}`;
 
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setItems(data)
-                console.log(data)
-            })
+
+
+        const getItems = async () => {
+
+
+            const { data } = await axios.get(url, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+
+            });
+
+            setItems(data)
+        }
+
+        getItems();
+
+
+
     }, [user])
 
 
