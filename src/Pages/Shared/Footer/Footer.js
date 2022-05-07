@@ -7,7 +7,7 @@ import './Footer.css'
 const Footer = () => {
 
     const date = new Date().getFullYear()
-    console.log(date)
+    // console.log(date)
 
 
     return (
@@ -19,7 +19,7 @@ const Footer = () => {
                 <p className='address'>
                     5/1-B, Zigatola, Dhaka-1209 <br />
 
-                    E-mail: info@squareinventory.com <br />
+                    info@squareinventory.com <br />
 
                     Hotline: 09611-000000
                 </p>
@@ -29,7 +29,7 @@ const Footer = () => {
 
 
             <div className='copyright'>
-                <p className='text-center '> © 2020 - {date} Square Inventory. All right reserved</p>
+                <p className='text-center '> © 2020 - {date} Square Inventory<br /> All right reserved</p>
             </div>
 
             <div className='icon'>

@@ -6,15 +6,13 @@ const Item = ({ item }) => {
 
     const navigate = useNavigate()
 
-    console.log('imte')
-
-
 
     return (
         <div className='item'>
 
+
+            <img className='mx-auto' src={item.image} alt="" />
             <h2 className='text-center'>{item?.name}</h2>
-            <img src={item.image} alt="" />
 
             <p>
                 <span>Description : {item?.description}</span> <br />
@@ -26,10 +24,7 @@ const Item = ({ item }) => {
                 <span>Track ID : {item?.trackId}</span>  <br />
             </p>
 
-            <div className="d-grid gap-2 col-6 mx-auto">
-                <button onClick={() => navigate(`/inventory/${item._id}`)} className="btn btn-primary" type="button">Manage</button>
-
-            </div>
+            <button onClick={() => navigate(`/inventory/${item._id}`)} className='btn-manage'>Manage</button>
 
 
 

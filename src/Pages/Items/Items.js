@@ -62,8 +62,6 @@ const Items = () => {
 
 
 
-
-
                 <div className='item-container'>
 
                     {

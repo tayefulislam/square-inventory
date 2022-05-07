@@ -58,7 +58,7 @@ const Update = () => {
 
 
         if ((priceCheck <= -1) || (quantityCheck <= -1)) {
-            toast('Plase enter a valid number')
+            toast('Please enter a valid number')
             return
         }
 

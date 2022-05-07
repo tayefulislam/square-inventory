@@ -45,9 +45,24 @@ const TrackItem = () => {
         < div className='container track-item'>
             <h1 className='text-center text-light'>Track Item</h1>
 
-            <form onSubmit={handelTrack} className="input-group mb-5 w-50 sm:w-100 mt-5 mx-auto">
-                <input type="text" name='trackid' className="form-control" placeholder="Tack Item by Track Id" aria-describedby="button-addon2" />
-                <button className="btn track-btn" type="submit" id="button-addon2">Track ID</button>
+            <form onSubmit={handelTrack} className="track-form mb-5 mt-5">
+
+
+
+
+
+                <div className="w-50 mb-3 mx-auto">
+                    <input type="text" className="form-control fs-3   text-center" name='trackid' placeholder="Tack Item by Track Id" />
+
+                    <button className='form-control  fw-bold fs-4 w-50 mx-auto mt-1 track-btn' type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+
+
+
+
+
+
+
             </form>
 
 

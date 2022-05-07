@@ -162,7 +162,13 @@ const Inventory = () => {
                     </p>
 
                     <div className="d-grid gap-2">
-                        <button onClick={handleUpdate} className="btn btn-primary w-50 mx-auto" type="button">Delivered</button>
+
+
+                        {item?.quantity ?
+
+                            <button onClick={handleUpdate} className="btn btn-primary w-50 mx-auto" type="button">Delivered</button> : item?.quantity < 1 && <button onClick={handleUpdate} className="btn btn-danger w-50 mx-auto" type="button">Sold Out</button>}
+
+
 
                     </div>
 

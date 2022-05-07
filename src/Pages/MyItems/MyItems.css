@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
 
+
 }
 
 
@@ -11,7 +12,27 @@
     border-radius: 20px;
     background-color: rgba(228, 252, 228, 0.541);
     padding: 20px;
-    max-height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+
+
+}
+
+
+.image-item {
+
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+
+.btn-all {
+
+    margin-top: auto;
+
 }
 
 .myitem p {
@@ -26,6 +47,7 @@
     padding: 10px 20px;
     border-radius: 20px;
     border: 0;
+
 
 
 }
@@ -44,6 +66,8 @@
 
 
 @media screen and (max-width:500px) {
+
+
 
     .myitems {
         grid-template-columns: 1fr;

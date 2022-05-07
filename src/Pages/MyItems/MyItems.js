@@ -97,7 +97,7 @@ const MyItems = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container '>
 
 
 
@@ -114,9 +114,13 @@ const MyItems = () => {
                 {
                     items.map(item => <div className='myitem' key={item._id}>
 
+
+
                         <h4><span >Name : </span>{item?.name}</h4>
 
-                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity}</p>
+                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity ?
+
+                            item?.quantity : item?.quantity === 0 && <span className='fw-bold text-danger'>Stock Out</span>}</p>
 
                         <p><span className='fw-bold'>Price : </span>{item?.price}</p>
 
@@ -128,16 +132,28 @@ const MyItems = () => {
 
                         <p className='fw-bold'><span>Shelf :</span> {item?.shelf}</p>
 
+                        <img className='image-item  mx-auto' src={item?.image} alt="" />
+
 
                         <div className='text-center'>
                             <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>
 
-                            <div>
+
+
+
+
+                        </div>
+
+                        <div className='text-center btn-all pt-2'>
+
+
+                            <div className='' >
                                 <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
                                 <button onClick={() => navigate(`/update/${item?._id}`)} className='btn btn-success m-1 '>Update</button>
                             </div>
 
-                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn m-1 '>Manage</button>
+
+                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn  m-1 '>Manage</button>
                         </div>
 
 

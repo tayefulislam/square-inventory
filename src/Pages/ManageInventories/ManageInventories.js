@@ -77,7 +77,10 @@ const ManageInventories = () => {
 
                         <h4><span >Name : </span>{item?.name}</h4>
 
-                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity}</p>
+                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity ?
+
+                            item?.quantity : item?.quantity === 0 && <span className='fw-bold text-danger'>Stock Out</span>}</p>
+                        <p ><span className='fw-bold'>Sold :</span> {item?.sold}</p>
 
                         <p><span className='fw-bold'>Price : </span>{item?.price}</p>
 
@@ -93,12 +96,19 @@ const ManageInventories = () => {
                         <div className='text-center'>
                             <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>
 
-                            <div>
+
+                        </div>
+
+                        <div className='text-center btn-all pt-2'>
+
+
+                            <div className='' >
                                 <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
-                                <button className='btn btn-success m-1 '>update</button>
+                                <button onClick={() => navigate(`/update/${item?._id}`)} className='btn btn-success m-1 '>Update</button>
                             </div>
 
-                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn m-1 '>Manage</button>
+
+                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn  m-1 '>Manage</button>
                         </div>
 
 
