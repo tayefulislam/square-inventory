@@ -6,6 +6,7 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import MyItem from '../MyItem/MyItem';
+import './MyItems.css'
 
 
 const MyItems = () => {
@@ -108,18 +109,21 @@ const MyItems = () => {
             </div>
 
 
-            <div>
+            <div className='myitems'>
+
                 {
-                    items.map(item => <div className='item-container' key={item._id}>
+                    items.map(item => <div className='myitem' key={item._id}>
 
-                        <h4>Name : {item.name}</h4>
-                        <p>Quantity : {item.quantity}</p>
-                        <p>Price : {item.price}</p>
-                        <p>Supplier : {item?.supplier}</p>
-                        <p>Description : {item?.description}</p>
+                        <h4><span >Name : </span>{item.name}</h4>
+                        <p className='fw-bold'><span >Quantity :</span> {item.quantity}</p>
+                        <p><span className='fw-bold'>Price : </span>{item.price}</p>
+                        <p><span className='fw-bold'>Supplier : </span>{item?.supplier}</p>
+                        <div className='text-center'>
+                            <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>
 
-                        <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
-                        <button className='btn btn-success'>update</button>
+                            <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
+                            <button className='btn btn-success'>update</button>
+                        </div>
 
 
                     </div>)
@@ -127,51 +131,7 @@ const MyItems = () => {
             </div>
 
 
-            <table className="table">
 
-
-
-
-                <tbody>
-
-                    <tr>
-
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Action </th>
-                    </tr>
-
-
-
-
-
-
-                    {
-                        items.map(item => <tr key={item?._id}>
-
-                            <td>{item?.name}</td>
-                            <td>{item?.price}</td>
-                            <td>{item?.quantity}</td>
-                            <td>{item?.supplier}</td>
-                            <td>{item?.description}</td>
-
-
-                            <td><button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
-                                <button className='btn btn-success'>update</button></td>
-
-
-                        </tr>)
-                    }
-
-
-
-
-                </tbody>
-
-            </table>
 
 
 
