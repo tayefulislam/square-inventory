@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const Update = () => {
@@ -32,7 +33,8 @@ const Update = () => {
     const handleUpdate = (event) => {
         event.preventDefault()
 
-
+        const priceCheck = parseInt(event.target.price.value)
+        const quantityCheck = parseInt(event.target.quantity.value)
 
         const updateItem = {
 
@@ -54,12 +56,31 @@ const Update = () => {
 
         }
 
+
+        if ((priceCheck <= -1) || (quantityCheck <= -1)) {
+            toast('Plase enter a valid number')
+            return
+        }
+
         const url = `https://glacial-scrubland-13579.herokuapp.com/update/${id}`
         // const url = `http://localhost:5000/update/${id}`
 
         axios.post(url, updateItem)
             .then(function (response) {
                 console.log(response)
+
+                if (response.data.modifiedCount === 0) {
+
+                    toast(`Please Change Something,
+                    Then Click Update Button`)
+
+                }
+
+                if (response.data.modifiedCount > 0) {
+
+                    toast("Data Updated Successfully")
+
+                }
             })
 
 

@@ -87,11 +87,6 @@ const Inventory = () => {
         }
 
 
-
-
-
-
-
     }
 
 

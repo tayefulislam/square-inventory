@@ -16,6 +16,10 @@ const AddItem = () => {
 
         const trackId = Math.floor(100000 * Math.random())
 
+        const priceCheck = parseInt(event.target.price.value)
+        const quantityCheck = parseInt(event.target.quantity.value)
+
+
         const newItem = {
             name: event.target.name.value,
             email: user.email,
@@ -38,6 +42,15 @@ const AddItem = () => {
 
         console.log(newItem)
 
+
+
+
+        if ((priceCheck <= -1) || (quantityCheck <= -1)) {
+            toast('Plase enter a valid number')
+            return
+        }
+
+
         axios.post('https://glacial-scrubland-13579.herokuapp.com/addnewitem', newItem)
             .then(function (response) {
                 console.log(response)
@@ -49,6 +62,16 @@ const AddItem = () => {
 
                 }
             })
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -67,17 +90,17 @@ const AddItem = () => {
 
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="text" className="form-control" name='name' id="floatingInputName" placeholder="Your Name" />
+                        <input type="text" className="form-control" name='name' required id="floatingInputName" placeholder="Your Name" />
                         <label for="floatingInputName">Item Name </label>
                     </div>
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="number" className="form-control" name='price' id="floatingInputPrice" placeholder="Price" />
+                        <input type="number" className="form-control" name='price' required id="floatingInputPrice" placeholder="Price" />
                         <label for="floatingInputName">Price</label>
                     </div>
 
                     <div className="form-floating mb-3  mx-auto">
-                        <input type="number" className="form-control" name='quantity' id="floatingInpuQuantity" placeholder="Quantity" />
+                        <input type="number" className="form-control" name='quantity' required id="floatingInpuQuantity" placeholder="Quantity" />
                         <label for="floatingInpuQuantity">Quantity</label>
                     </div>
 
@@ -85,22 +108,22 @@ const AddItem = () => {
 
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="text" className="form-control" name='image' id="floatingInputName" placeholder="Image" />
+                        <input type="text" className="form-control" name='image' required id="floatingInputName" placeholder="Image" />
                         <label for="floatingInputName">Image </label>
                     </div>
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="text" className="form-control" name='supplier' id="floatingInputName" placeholder="Supplier" />
+                        <input type="text" className="form-control" name='supplier' required id="floatingInputName" placeholder="Supplier" />
                         <label for="floatingInputName">Supplier</label>
                     </div>
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="text" className="form-control" name='description' id="floatingInputName" placeholder="Description" />
+                        <input type="text" className="form-control" name='description' required id="floatingInputName" placeholder="Description" />
                         <label for="floatingInputName">Description</label>
                     </div>
 
                     <div className="form-floating mb-3 mx-auto">
-                        <input type="text" className="form-control" name='shelf' id="floatingInputName" placeholder="Your Name" />
+                        <input type="text" className="form-control" name='shelf' required id="floatingInputName" placeholder="Your Name" />
                         <label for="floatingInputName">Shelf</label>
                     </div>
 
