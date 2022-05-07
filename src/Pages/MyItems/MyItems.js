@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import MyItem from '../MyItem/MyItem';
 
 
 const MyItems = () => {
@@ -104,6 +105,25 @@ const MyItems = () => {
             <div className="d-grid gap-2">
                 <button onClick={() => navigate('/addnewitem')} className="btn btn-outline-primary w-20 mx-auto" type="button">Add New Item</button>
 
+            </div>
+
+
+            <div>
+                {
+                    items.map(item => <div className='item-container' key={item._id}>
+
+                        <h4>Name : {item.name}</h4>
+                        <p>Quantity : {item.quantity}</p>
+                        <p>Price : {item.price}</p>
+                        <p>Supplier : {item?.supplier}</p>
+                        <p>Description : {item?.description}</p>
+
+                        <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
+                        <button className='btn btn-success'>update</button>
+
+
+                    </div>)
+                }
             </div>
 
 
