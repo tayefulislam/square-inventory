@@ -11,20 +11,25 @@ const Inventory = () => {
 
     console.log(id)
 
-    const [item, setItem] = useState([]);
-    const [iQuantity, setIQuantity] = useState(0);
+    // const [item, setItem] = useState([]);
+    const [iQuantity, setIQuantity] = useState();
+    let [count, setCount] = useState(0)
     const navigate = useNavigate()
 
+
+    const [item, setItem] = useState([]);
     useEffect(() => {
+
         const url = `https://glacial-scrubland-13579.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setItem(data)
                 console.log(data)
+                setItem(data)
+
             })
 
-    }, [id, iQuantity])
+    }, [id, iQuantity, count])
 
     console.log(item)
 
@@ -32,6 +37,7 @@ const Inventory = () => {
 
     // presold
     const preSold = parseInt(item.sold);
+
     let newSold;
     console.log(preSold)
 
@@ -107,6 +113,9 @@ const Inventory = () => {
             const newQuantity = preQuantity - 1;
             newSold = preSold + 1
 
+            // check update
+            setCount(newQuantity)
+
 
 
 
@@ -117,6 +126,7 @@ const Inventory = () => {
                     console.log(response)
 
                     setIQuantity(newQuantity)
+
 
                 })
 
@@ -149,7 +159,7 @@ const Inventory = () => {
 
                         <span>Quantity : {item?.quantity ?
 
-                            item?.quantity : item?.quantity === 0 && 'Stock Out'}</span>  <br />
+                            item?.quantity : item?.quantity < 1 && 'Stock Out'}</span>  <br />
 
                         <span>Sold : {item?.sold}</span>  <br />
 
