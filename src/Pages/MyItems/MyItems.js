@@ -63,7 +63,7 @@ const MyItems = () => {
     const handleDelete = (id) => {
 
 
-        const procced = window.confirm('sure')
+        const procced = window.confirm('Plase Comfirm Delte Item ?')
 
         if (procced) {
             const url = `https://glacial-scrubland-13579.herokuapp.com/detele/${id}`
@@ -109,20 +109,35 @@ const MyItems = () => {
             </div>
 
 
-            <div className='myitems'>
+            <div className='myitems mt-5'>
 
                 {
                     items.map(item => <div className='myitem' key={item._id}>
 
-                        <h4><span >Name : </span>{item.name}</h4>
-                        <p className='fw-bold'><span >Quantity :</span> {item.quantity}</p>
-                        <p><span className='fw-bold'>Price : </span>{item.price}</p>
-                        <p><span className='fw-bold'>Supplier : </span>{item?.supplier}</p>
+                        <h4><span >Name : </span>{item?.name}</h4>
+
+                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity}</p>
+
+                        <p><span className='fw-bold'>Price : </span>{item?.price}</p>
+
+                        <p><span className='fw-bold'>Supplier : </span><span >{item?.supplier}</span></p>
+
+                        <p><span className='fw-bold'>Track Id : </span>
+
+                            <span className='text-danger' >{item?.trackId}</span></p>
+
+                        <p className='fw-bold'><span>Shelf :</span> {item?.shelf}</p>
+
+
                         <div className='text-center'>
                             <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>
 
-                            <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
-                            <button className='btn btn-success'>update</button>
+                            <div>
+                                <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
+                                <button onClick={() => navigate(`/update/${item?._id}`)} className='btn btn-success m-1 '>Update</button>
+                            </div>
+
+                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn m-1 '>Manage</button>
                         </div>
 
 

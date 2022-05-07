@@ -70,51 +70,41 @@ const ManageInventories = () => {
             </div>
 
 
-            <table className="table">
+            <div className='myitems mt-5'>
+
+                {
+                    items.map(item => <div className='myitem' key={item._id}>
+
+                        <h4><span >Name : </span>{item?.name}</h4>
+
+                        <p className='fw-bold'><span >Quantity :</span> {item?.quantity}</p>
+
+                        <p><span className='fw-bold'>Price : </span>{item?.price}</p>
+
+                        <p><span className='fw-bold'>Supplier : </span><span >{item?.supplier}</span></p>
+
+                        <p><span className='fw-bold'>Track Id : </span>
+
+                            <span className='text-danger' >{item?.trackId}</span></p>
+
+                        <p className='fw-bold'><span>Shelf :</span> {item?.shelf}</p>
 
 
+                        <div className='text-center'>
+                            <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>
+
+                            <div>
+                                <button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
+                                <button className='btn btn-success m-1 '>update</button>
+                            </div>
+
+                            <button onClick={() => navigate(`/inventory/${item._id}`)} className='manage-btn m-1 '>Manage</button>
+                        </div>
 
 
-                <tbody>
-
-                    <tr>
-
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Action </th>
-                    </tr>
-
-
-
-
-
-
-                    {
-                        items.map(item => <tr key={item?._id}>
-
-                            <td>{item?.name}</td>
-                            <td>{item?.price}</td>
-                            <td>{item?.quantity}</td>
-                            <td>{item?.supplier}</td>
-                            <td>{item?.description}</td>
-
-
-                            <td><button onClick={() => handleDelete(item?._id)} className='btn btn-danger g-3'>Delete</button>
-                                <button className='btn btn-success'>update</button></td>
-
-
-                        </tr>)
-                    }
-
-
-
-
-                </tbody>
-
-            </table>
+                    </div>)
+                }
+            </div>
 
 
 

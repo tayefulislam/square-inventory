@@ -19,6 +19,7 @@ import PasswordSent from './Pages/ResetPassword/PasswordSent';
 import Blogs from './Pages/Blogs/Blogs';
 import Footer from './Pages/Shared/Footer/Footer';
 import Count from './Pages/Count/Count';
+import Update from './Pages/Update/Update';
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         <Route path='/addnewitem' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>}></Route>
+
+        <Route path='/update/:id' element={<RequireAuth> <Update></Update></RequireAuth>}></Route>
+
         <Route path='blogs' element={<Blogs></Blogs>}></Route>
 
         <Route path='/loading' element={<Loading></Loading>}></Route>

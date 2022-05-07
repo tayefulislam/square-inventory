@@ -6,4 +6,47 @@
 }
 
 
-.myitem {}
+.myitem {
+
+    border-radius: 20px;
+    background-color: rgba(228, 252, 228, 0.541);
+    padding: 20px;
+    max-height: auto;
+}
+
+.myitem p {
+    margin: 2px;
+}
+
+
+.manage-btn {
+
+    color: aliceblue;
+    background-color: rgba(27, 26, 26, 0.945);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 0;
+
+
+}
+
+.manage-btn:hover {
+    font-weight: 600;
+
+}
+
+.myitem:hover {
+
+
+    background-color: rgba(187, 247, 187, 0.541);
+
+}
+
+
+@media screen and (max-width:500px) {
+
+    .myitems {
+        grid-template-columns: 1fr;
+    }
+
+}
