@@ -11,7 +11,7 @@ const Home = () => {
 
     return (
         <div>
-
+            {/* track Item and count is extra section */}
             <Banner></Banner>
             <TrackItem></TrackItem>
             <Items></Items>
