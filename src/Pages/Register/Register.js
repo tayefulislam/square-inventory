@@ -1,8 +1,7 @@
-import { sendEmailVerification } from 'firebase/auth';
-import React, { useEffect } from 'react';
-import { Spinner } from 'react-bootstrap';
 
-import { useAuthState, useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
+import React, { useEffect } from 'react';
+
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -129,7 +128,7 @@ const Register = () => {
 
                         <button className="btn btn-outline-dark w-20 mx-auto" type="submit"><span className='text-light click-btn'>SignUp</span></button>
 
-                        <p className='text-center text-light fw-bold '>Already Have Account ?<span onClick={() => navigate('/login')} type="button" className='reset-title'>Login</span></p>
+                        <p className='text-center text-light fw-bold '>Already Have Account ? <span onClick={() => navigate('/login')} type="button" className='reset-title'>Login</span></p>
 
 
 

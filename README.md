@@ -1,3 +1,29 @@
+# Project : Square Inventory
+
+[Live WebSite Link ](https://square-inventory-26243.firebaseapp.com/)
+
+[Live WebSite Link ](https://square-inventory-26243.firebaseapp.com/) : https://square-inventory-26243.firebaseapp.com/
+
+
+
+## Features & Functionality
+
+- You Can Track Your Item By Track Id (Ex: 39958 )
+- From Footer Upper Section You Can see the number of total item , how many In Stock and Total Delivered .
+- If You Click Delivered it reduce by 1  and add increase sold number
+- If Quantity 0 , Button will be "Stock out" and red color.
+- You Can't Update Inventory detail in feture .
+- If Data is loading it will you sppiner
+- You Can add quantity by Re Stock Function .
+- My Items will show you result depend on user email address.
+- It can create Jwt access token when user will login ,register (aslo social login) and give result based on jwt
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

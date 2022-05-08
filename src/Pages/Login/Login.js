@@ -128,7 +128,7 @@ const Login = () => {
 
                         <p className='text-center text-light fw-bold '>Forget Password ? <span onClick={() => navigate('/reset-password')} type="button" className='reset-title'>Reset Now</span></p>
 
-                        <p className='text-center text-light fw-bold '>Don't Have Account ?<span onClick={() => navigate('/signup')} type="button" className='reset-title'>Register</span></p>
+                        <p className='text-center text-light fw-bold '>Don't Have Account ? <span onClick={() => navigate('/signup')} type="button" className='reset-title'>Register</span></p>
 
 
 

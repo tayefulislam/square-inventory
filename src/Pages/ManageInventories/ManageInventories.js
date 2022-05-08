@@ -109,6 +109,9 @@ const ManageInventories = () => {
                         <p className='fw-bold'><span>Shelf :</span> {item?.shelf}</p>
                         <p><span className='fw-bold'>Email : </span>{item?.email}</p>
 
+                        <img className='image-item  mx-auto' src={item?.image} alt="" />
+
+
 
                         <div className='text-center'>
                             <p><span className='fw-bold'>Description :</span> <br></br> {item?.description}</p>

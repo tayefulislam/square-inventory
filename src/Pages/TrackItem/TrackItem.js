@@ -70,7 +70,12 @@ const TrackItem = () => {
             <div>
 
                 <h1 className='text-center text-light'>{trackItem?.name}</h1>
-                <h2 className='text-center text-light'>{trackItem?.shelf}</h2>
+                <h2 className='text-center text-light'>
+
+
+                    {trackItem.shelf ? 'Shelf : ' + trackItem?.shelf : ''}
+
+                </h2>
 
 
 
