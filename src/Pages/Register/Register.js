@@ -93,7 +93,7 @@ const Register = () => {
 
     return (
         <>
-            <div className='container mt-4 form'>
+            <div className='container mt-4 form mb-5'>
 
                 <h1 className='text-center mb-5 mt-4 text-light'>Registration</h1>
 

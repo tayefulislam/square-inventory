@@ -11,7 +11,7 @@ const ResetPassword = () => {
 
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
-
+    const navigate = useNavigate()
     const handleResetPassword = async (event) => {
         event.preventDefault()
 
@@ -77,7 +77,10 @@ const ResetPassword = () => {
                     }
 
 
-                    <button className="btn btn-outline-dark w-20 mx-auto" type="submit"><span className='text-light click-btn'>Send Reset Link</span></button>
+                    <button className="btn btn-outline-dark w-20 mx-auto mb-3" type="submit"><span className='text-light click-btn'>Send Reset Link</span></button>
+
+
+                    <p className='text-center text-light fw-bold '>No Thanks. I know my password. <span onClick={() => navigate('/login')} type="button" className='reset-title'>Login</span></p>
 
 
 
