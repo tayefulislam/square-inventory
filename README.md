@@ -6,17 +6,22 @@
 
 
 
+# Description
+
+Square Inventory warehouse management or inventory management web application.Square Inventory  develop by using  React, Firebase, React Router, Node, Express, Mongodb,Heroku (Server side),React Bootstrap. You can easily handle your warehouse by it. You can track,add ,update,delete your item.
+
 ## Features & Functionality
 
 - You Can Track Your Item By Track Id (Ex: 39958 )
-- From Footer Upper Section You Can see the number of total item , how many In Stock and Total Delivered .
+- From Footer Upper Section You Can see the number of total items , how many In Stock and Total Delivered .
 - If You Click Delivered it reduce by 1  and add increase sold number
 - If Quantity 0 , Button will be "Stock out" and red color.
-- You Can't Update Inventory detail in feture .
-- If Data is loading it will you sppiner
-- You Can add quantity by Re Stock Function .
-- My Items will show you result depend on user email address.
+- You Can Update Inventory details in the future .
+- If Data is loading it will you spinner
+- You Can add quantity by clicking the ReStock Button .
+- My Items will show you results depending on the user's email address.
 - It can create Jwt access token when user will login ,register (aslo social login) and give result based on jwt
+
 
 
 
