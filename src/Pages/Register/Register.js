@@ -9,6 +9,7 @@ import auth from '../../firebase.init';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import Loading from '../Shared/Loading/Loading'
 import './Register.css';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -50,6 +51,16 @@ const Register = () => {
         await sendEmailVerification()
 
 
+        const url = `https://glacial-scrubland-13579.herokuapp.com/login`;
+
+        // const url = `http://localhost:5000/login`
+
+        const { data } = await axios.post(url, { email })
+        // console.log(data)
+        localStorage.setItem('accessToken', data.acceseToken)
+        navigate(from, { replace: true })
+
+
 
 
         if (error) {
@@ -71,7 +82,7 @@ const Register = () => {
         if (user) {
             toast('Sign Up complete')
 
-            navigate('/home')
+            // navigate('/home')
         }
 
     }, [user])

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -19,7 +20,29 @@ const SocialLogin = () => {
 
 
     if (user) {
-        navigate(from, { replace: true })
+
+
+        console.log(user)
+
+        const { email } = user.user;
+        console.log(email)
+
+
+        // navigate(from, { replace: true })
+
+        const url = `https://glacial-scrubland-13579.herokuapp.com/login`;
+
+        axios.post(url, { email })
+            .then(function (response) {
+
+                console.log(response.data.acceseToken);
+
+                localStorage.setItem('accessToken', response.data.acceseToken)
+                navigate(from, { replace: true })
+
+            })
+
+
     }
 
 

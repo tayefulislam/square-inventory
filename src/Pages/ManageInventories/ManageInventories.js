@@ -77,12 +77,14 @@ const ManageInventories = () => {
 
                         <h4><span >Name : </span>{item?.name}</h4>
 
+
                         <p className='fw-bold'><span >Quantity :</span> {item?.quantity ?
 
                             item?.quantity : item?.quantity === 0 && <span className='fw-bold text-danger'>Stock Out</span>}</p>
                         <p ><span className='fw-bold'>Sold :</span> {item?.sold}</p>
 
                         <p><span className='fw-bold'>Price : </span>{item?.price}</p>
+
 
                         <p><span className='fw-bold'>Supplier : </span><span >{item?.supplier}</span></p>
 
@@ -91,6 +93,7 @@ const ManageInventories = () => {
                             <span className='text-danger' >{item?.trackId}</span></p>
 
                         <p className='fw-bold'><span>Shelf :</span> {item?.shelf}</p>
+                        <p><span className='fw-bold'>Email : </span>{item?.email}</p>
 
 
                         <div className='text-center'>
