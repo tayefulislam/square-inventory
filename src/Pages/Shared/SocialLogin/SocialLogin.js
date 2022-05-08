@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 // import auth from '../../firebase.init';
+import './LocialLogin.css';
 
 const SocialLogin = () => {
 
@@ -16,6 +18,8 @@ const SocialLogin = () => {
 
 
     const from = location.state?.from?.pathname || "/";
+
+
 
 
 
@@ -46,16 +50,25 @@ const SocialLogin = () => {
     }
 
 
+    useEffect(() => {
+        if (error) {
+            toast(error.message)
+        }
+    }, [error])
+
+
     return (
 
-        <div>
+        <div container>
+
+
 
 
 
 
 
             <div className="d-grid gap-2 mt-3">
-                <button onClick={() => signInWithGoogle()} className="btn btn-outline-danger w-20 mx-auto" type="submit"><span className='text-dark click-btn'>Google</span></button>
+                <button onClick={() => signInWithGoogle()} className="btn social-btn w-20 mx-auto" type="submit"><span className='click-btn'>Google</span></button>
 
 
 

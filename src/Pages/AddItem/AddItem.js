@@ -44,6 +44,7 @@ const AddItem = () => {
 
 
 
+        // check nagative value
 
         if ((priceCheck <= -1) || (quantityCheck <= -1)) {
             toast('Please enter a valid number')

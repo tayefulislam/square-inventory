@@ -1,0 +1,12 @@
+.social-btn {
+
+    border: 1px red solid;
+}
+
+.social-btn:hover {
+
+    background-color: rgb(252, 61, 61);
+    color: bisque;
+
+
+}

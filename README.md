@@ -8,7 +8,7 @@
 
 # Description
 
-Square Inventory warehouse management or inventory management web application.Square Inventory  develop by using  React, Firebase, React Router, Node, Express, Mongodb,Heroku (Server side),React Bootstrap. You can easily handle your warehouse by it. You can track,add ,update,delete your item.
+Square Inventory warehouse management or inventory management web application.Square Inventory  develop by using  React, Firebase, React Router, Node, Express, Mongodb,Heroku (Server side),React Bootstrap , React CountUp etc. You can easily handle your warehouse by it. You can track,add ,update,delete your item.
 
 ## Features & Functionality
 
