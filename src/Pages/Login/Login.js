@@ -104,12 +104,12 @@ const Login = () => {
 
 
                     <div className="form-floating mb-3 w-50 mx-auto">
-                        <input type="email" className="form-control" name='email' id="floatingInput" placeholder="name@example.com" />
-                        <label for="floatingInput">Email address</label>
+                        <input type="email" required className="form-control" name='email' id="floatingInputEmail" placeholder="name@example.com" />
+                        <label for="floatingInputEmail">Email address</label>
                     </div>
 
                     <div className="form-floating w-50 mx-auto">
-                        <input type="password" className="form-control"
+                        <input type="password" required className="form-control"
                             name='password' id="floatingPassword" placeholder="Password" />
                         <label for="floatingPassword">Password</label>
                     </div>

@@ -39,6 +39,16 @@ const Blogs = () => {
             </div>
 
 
+            <div>
+                <h2 className='text-center'>What is the purpose of jwt and how does it work ?</h2>
+                <p className='fs-5'>
+                    Jwt is a system that shares information between two parties - a client and a server securely . JWT is signed and encoded, not encrypted.JWT is a token based stateless authentication mechanism. JSON Web Tokens consist of three parts -  Header, Payload, Signature
+                    Header content mechanism type payload content claims type and Signature encoded header and payload
+
+                </p>
+            </div>
+
+
 
 
         </div>

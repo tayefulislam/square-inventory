@@ -92,6 +92,13 @@ const Register = () => {
     }, [user])
 
 
+    useEffect(() => {
+        if (error) {
+            toast(error.message)
+        }
+    }, [error])
+
+
 
 
 
@@ -105,16 +112,16 @@ const Register = () => {
                 <form onSubmit={handeSubmit}>
 
                     <div className="form-floating mb-3 w-50 mx-auto">
-                        <input type="text" className="form-control" name='name' id="floatingInput" placeholder="Your Name" />
+                        <input type="text" required className="form-control" name='name' id="floatingInput" placeholder="Your Name" />
                         <label for="floatingInput">Your Name </label>
                     </div>
                     <div className="form-floating mb-3 w-50 mx-auto">
-                        <input type="email" className="form-control" name='email' id="floatingInput" placeholder="name@example.com" />
+                        <input type="email" className="form-control" name='email' required id="floatingInput" placeholder="name@example.com" />
                         <label for="floatingInput">Email address</label>
                     </div>
 
                     <div className="form-floating w-50 mx-auto">
-                        <input type="password" className="form-control"
+                        <input type="password" required className="form-control"
                             name='password' id="floatingPassword" placeholder="Password" />
                         <label for="floatingPassword">Password</label>
                     </div>
