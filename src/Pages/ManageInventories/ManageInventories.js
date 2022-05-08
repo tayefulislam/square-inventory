@@ -1,30 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import useItems from '../hooks/useItems';
+import Loading from '../Shared/Loading/Loading';
 
 const ManageInventories = () => {
 
 
+    // get all items useing hooks
+    const [items, isLaoding, setItems] = useItems()
 
-    const [items, setItems] = useState([])
+
+
     const navigate = useNavigate()
 
-    const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
 
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setItems(data)
-                console.log(data)
-            })
-    }, [])
 
 
     const handleDelete = (id) => {
 
 
-        const procced = window.confirm('sure')
+        const procced = window.confirm('Are you want to delete this item ?')
 
         if (procced) {
             const url = `https://glacial-scrubland-13579.herokuapp.com/detele/${id}`
@@ -70,7 +66,25 @@ const ManageInventories = () => {
             </div>
 
 
+            <div className="d-grid gap-2 mt-5">
+
+                {
+                    !isLaoding ? <Loading></Loading> : ''
+                }
+
+
+
+
+            </div>
+
+
             <div className='myitems mt-5'>
+
+
+
+
+
+
 
                 {
                     items.map(item => <div className='myitem' key={item._id}>

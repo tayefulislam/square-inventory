@@ -1,52 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Item from '../Item/Item';
-import { Spinner } from 'react-bootstrap';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import Loading from '../Shared/Loading/Loading'
-import './Items.css'
-import { async } from '@firebase/util';
+
+import Loading from '../Shared/Loading/Loading';
+import './Items.css';
+import useItems from '../hooks/useItems';
 
 
 const Items = () => {
 
-
-
-
-
-    const [items, setItems] = useState([])
-
     const navigate = useNavigate()
-    const [user, loading, error] = useAuthState(auth);
 
+    const [items, isLaoding] = useItems()
 
-    // loading : set true of false
-    const [isLaoding, setIsLoading] = useState()
-
-
+    console.log(items, isLaoding)
 
 
 
-    const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
-
-    // const url = `http://localhost:5000/items`;
-
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-
-                setItems(data)
-                setIsLoading(true)
-
-                console.log(data)
-
-            })
-    }, [user])
+    // const [items, setItems] = useState([])
 
 
-    console.log(isLaoding)
+
+
+
+    // // loading : set true of false
+    // const [isLaoding, setIsLoading] = useState()
+
+    // const url = `https://glacial-scrubland-13579.herokuapp.com/items`;
+
+    // // const url = `http://localhost:5000/items`;
+
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => {
+
+    //             setItems(data)
+    //             setIsLoading(true)
+
+    //             // console.log(data)
+
+    //         })
+    // }, [])
+
+
+    // // console.log(isLaoding)
 
 
 
@@ -66,7 +64,7 @@ const Items = () => {
 
                     {
 
-                        items.map(item => <Item key={item._id} item={item}></Item>)
+                        items.slice(0, 6).map(item => <Item key={item._id} item={item}></Item>)
 
                     }
 

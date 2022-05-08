@@ -58,7 +58,9 @@ const Register = () => {
         const { data } = await axios.post(url, { email })
         // console.log(data)
         localStorage.setItem('accessToken', data.acceseToken)
-        navigate(from, { replace: true })
+
+
+
 
 
 
@@ -82,7 +84,10 @@ const Register = () => {
         if (user) {
             toast('Sign Up complete')
 
-            // navigate('/home')
+
+
+
+            navigate('/home')
         }
 
     }, [user])

@@ -7,15 +7,19 @@ import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import MyItem from '../MyItem/MyItem';
 import './MyItems.css'
+import Loading from '../Shared/Loading/Loading';
 
 
 const MyItems = () => {
 
     const [items, setItems] = useState([])
-    console.log(items)
+    // console.log(items)
     const navigate = useNavigate()
 
     const [user, loading, error] = useAuthState(auth);
+
+    // loading : set true of false
+    const [isLaoding, setIsLoading] = useState()
 
 
     const url = `https://glacial-scrubland-13579.herokuapp.com/itemlist?email=${user?.email}`;
@@ -38,6 +42,7 @@ const MyItems = () => {
                 });
 
                 setItems(data)
+                setIsLoading(true)
 
             }
             catch (error) {
@@ -105,6 +110,18 @@ const MyItems = () => {
 
             <div className="d-grid gap-2">
                 <button onClick={() => navigate('/addnewitem')} className="btn btn-outline-primary w-20 mx-auto" type="button">Add New Item</button>
+
+            </div>
+
+
+            <div className="d-grid gap-2 mt-5">
+
+                {
+                    !isLaoding ? <Loading></Loading> : ''
+                }
+
+
+
 
             </div>
 
